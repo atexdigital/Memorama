@@ -1,0 +1,438 @@
+/* Browser Reset */
+@import "compass/css3";
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+
+/* Basic Elements */
+
+body {
+    background: #29282d url(https://i.postimg.cc/xdFTWB8P/fondo.jpg) no-repeat center center fixed;
+    background-size: cover;
+    --font: 'Raleway', sans-serif, bold;
+    font-family: var(--font);
+    font-weight: 200;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 1rem 2rem 2rem;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0;
+}
+
+.deck li {
+    width: calc(95%/3);
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deck .card {
+    margin: 8px;
+}
+
+.deck .card_top {
+    border-radius: 8px;
+    background: url(https://i.postimg.cc/3wZJxPdp/patita.jpg) no-repeat center center;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.deck img {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 8px;
+    background: transparent;
+    transition: 0.5s all;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    opacity: 0;
+}
+
+img.selected:hover,
+img.match:hover,
+img.incorrect:hover {
+    cursor: default;
+}
+
+img.selected,
+img.incorrect {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    opacity: 1;    
+}
+
+img.match {
+    -webkit-animation: match 0.5s;
+    opacity: 1; 
+}
+
+/*
+ * Animations
+ */
+
+@-webkit-keyframes match {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes match {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.score-panel .stars {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    min-width: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    margin: 0 5px 0 0;
+}
+
+.fa-star {
+    color: #fbca39;
+}
+
+.score-panel .moves {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 90px;
+}
+
+.score-panel .moves .paragraph_moves {
+    align-items: center;
+}
+
+.score-panel .timer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 90px;
+}
+
+.score-panel .timer .paragraph_timer {
+    align-items: center;
+}
+
+.score-panel #restart,
+.score-panel #advanced {
+    flex-grow: 1;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    background: transparent;
+   
+    font-size: 1rem;
+    min-width: 100px;
+    border: none;
+    outline: none;
+}
+
+.score-panel #restart:hover,
+.score-panel #advanced:hover {
+    color: #fbca39;
+}
+
+
+/*
+ * Styles Winner Message
+ */
+
+.winner_message {
+    color: #29282d;
+    background: url(https://i.postimg.cc/QdFmWfYy/fondo-2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    border-radius: 10px;
+   
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 2em;
+    left: 50%;
+    top: -100%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: 0.5s all ease-in;
+    translate: 0 118px; 
+ 
+    width: 100%;
+    height: 100%;
+   /*   background: rgba(255, 255, 255, 0.23);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.2px);
+-webkit-backdrop-filter: blur(4.2px); */
+}
+
+.winner_message_2 {
+
+    color: #ffffff;
+  /*  background-color: rgb(231, 231, 231);*/
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 2em;
+    left: 30%;
+    top: 90%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: 0.5s all ease-in;
+    font-size: 2rem;
+   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
+}
+
+.winner_message.active {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 40%;
+    z-index: 100;
+}
+
+
+.winner-message .container {
+    position: relative;
+    z-index: 100;
+}
+
+.winner_message .winner_title {
+    font-size: 1.6rem;
+}
+
+.winner_message .line {
+    width: 80%; 
+    margin: 1rem auto;
+    border: 1px solid #b3b3b3;
+}
+
+.winner_message .winning_stars {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.winner_message .winning_stars li {
+    list-style: none;
+    margin: 0 5px 0 0;
+}
+
+.play_again {position: relative;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: none;
+ 
+    box-shadow: 0 0 0 0 rgba(212, 151, 96, 0.7);
+    border-radius: 50%;
+    background-image: url(https://i.postimg.cc/wM8fHZXN/carita.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    translate: 180px -815px;
+    scale: 1.5;
+}
+
+.play_again:hover {-webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+    transition: 1s;
+    background-image:url(https://i.postimg.cc/cJGrRcBm/play.jpg);
+    scale: 1.5;
+    }
+    @-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(212, 151, 96, 0);}}
+    @-moz-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(212, 151, 96, 0);}}
+    @-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(212, 151, 96, 0);}}
+    @keyframes pulse {to {box-shadow: 0 0 0 45px rgba(212, 151, 96, 0);}}
+    
+
+/*
+ * Styles Footer
+ */
+
+footer {
+    padding: 0 2rem 1rem;
+}
+
+footer p,
+footer a {
+    color: #746e6e;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+/*
+ * Media Queries
+ */
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .deck {
+        padding: 0.75rem 1rem;
+    }
+}  
+
+@media only screen and (max-width: 537px) {
+    .score-panel {
+        padding: 0 1rem;
+    }
+
+    .score-panel .stars,
+    .score-panel .moves,
+    .score-panel .timer {
+        min-width: calc(100%/3);
+    }
+
+    .score-panel #restart,
+    .score-panel #advanced {
+        padding-top: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 334px) {
+     h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.0rem;
+    }
+}
+
+
+
+
+
