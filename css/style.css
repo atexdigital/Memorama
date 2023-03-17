@@ -32,23 +32,23 @@ p {
 
 /* GRACIAS ACTUALICE SU SUBSCRIPCION*/
 
-/*body {
+body {
     background: #29282d url(https://i.postimg.cc/PJ7skTXM/gracias.jpg) no-repeat center center fixed;
     background-size: cover;
     --font: 'Raleway', sans-serif, bold;
     font-family: var(--font);
     font-weight: 200;
     color: #fff;
-}*/
+}
 
-body {
+/*body {
     background: #29282d url(https://i.postimg.cc/xdFTWB8P/fondo.jpg) no-repeat center center fixed;
     background-size: cover;
     --font: 'Raleway', sans-serif, bold;
     font-family: var(--font);
     font-weight: 200;
     color: #fff;
-}
+}*/
 
 .container {
     display: flex;
